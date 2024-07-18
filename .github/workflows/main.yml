@@ -30,6 +30,13 @@ jobs:
             http = true
             insecure = true
             
+    - name: Modify Docker daemon.json
+      run: |
+        echo '{
+          "insecure-registries" : ["219.135.230.196:5000"]
+        }' | sudo tee /etc/docker/daemon.json
+        sudo systemctl restart docker
+        
     - name: Login to private registry
       uses: docker/login-action@v1
       with:
