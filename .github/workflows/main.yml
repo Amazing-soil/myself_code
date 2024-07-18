@@ -31,5 +31,7 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: 219.135.230.194:5001
+        username: admin
+        password: passw0rdKOYsmJUdS8
               
 
