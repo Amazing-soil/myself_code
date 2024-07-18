@@ -25,9 +25,11 @@ jobs:
         registry: 219.135.230.196:5000
         username: test
         password: test111
-
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+              
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
       with:
-        push: true
-        tags: 219.135.230.196:5000/my-ubuntu:latest
+        config-inline: |
+          [registry."219.135.230.196:5000"]
+            http = true
+            insecure = true
