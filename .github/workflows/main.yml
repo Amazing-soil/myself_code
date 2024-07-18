@@ -23,15 +23,13 @@ jobs:
     - name: Modify Docker daemon.json
       run: |
         echo '{
-          "insecure-registries" : ["219.135.230.196:5000"]
+          "insecure-registries" : ["219.135.230.194:5001"]
         }' | sudo tee /etc/docker/daemon.json
         sudo systemctl restart docker
         
     - name: Login to private registry
       uses: docker/login-action@v1
       with:
-        registry: 219.135.230.196:5000
-        username: test
-        password: test111
+        registry: 219.135.230.194:5001
               
 
